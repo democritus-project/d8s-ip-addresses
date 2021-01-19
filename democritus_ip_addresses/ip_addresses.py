@@ -1,10 +1,6 @@
 from functools import partial
 import ipaddress
-import os
 import re
-import sys
-
-sys.path.append(os.path.abspath(os.path.join(os.path.dirname(__file__), '.')))
 
 # TODO: add decorator(? - or perhaps define a custom type) to validate that the input is an ip address - this applies to all/most functions throughout this file
 # TODO: probably want to use ipaddress.ip_interface rather than ipaddress.ip_network to handle situations in which a host bit is set - may be helpful to have a function to determine if a host bit is set
@@ -73,9 +69,9 @@ def is_ip_address(text):
 
 def ip_whois(ip):
     """Get whois information for the given ip address."""
-    from networking import get
+    from democritus_networking import get
 
-    return get(f'https://ipapi.co/{ip}/json/')
+    return get(f'https://ipapi.co/{ip}/json/', process_response=True)
 
 
 def ip_is_reserved(ip):
@@ -166,27 +162,29 @@ def ipv6_threatconnect_form(ip_v6):
 
 def ip_current():
     """Get the current ip address."""
-    from networking import get
+    from democritus_networking import get
 
-    return get('https://ipinfo.io/json')
+    return get('https://ipinfo.io/json', process_response=True)
 
 
 def ipv4_private_addresses():
     """Get private ipv4 addresses from https://www.iana.org/assignments/iana-ipv4-special-registry/iana-ipv4-special-registry.xhtml."""
-    from csv_data import csv_to_json
+    from democritus_csv import csv_read_as_dict
+    from democritus_networking import get
 
-    private_ipv4_addresses = csv_to_json(
-        'https://www.iana.org/assignments/iana-ipv4-special-registry/iana-ipv4-special-registry-1.csv', heading_row=0
+    private_ipv4_addresses = csv_read_as_dict(
+        get('https://www.iana.org/assignments/iana-ipv4-special-registry/iana-ipv4-special-registry-1.csv', process_response=True)
     )
     return private_ipv4_addresses
 
 
 def ipv6_private_addresses():
     """Get private ipv6 addresses from https://www.iana.org/assignments/iana-ipv6-special-registry/iana-ipv6-special-registry.xhtml#iana-ipv6-special-registry-1."""
-    from csv_data import csv_to_json
+    from democritus_csv import csv_read_as_dict
+    from democritus_networking import get
 
-    private_ipv6_addresses = csv_to_json(
-        'https://www.iana.org/assignments/iana-ipv6-special-registry/iana-ipv6-special-registry-1.csv', heading_row=0
+    private_ipv6_addresses = csv_read_as_dict(
+        get('https://www.iana.org/assignments/iana-ipv6-special-registry/iana-ipv6-special-registry-1.csv', process_response=True)
     )
     return private_ipv6_addresses
 
@@ -200,11 +198,9 @@ def ipv4_sum(ipv4_address):
 
 def ipv4_is_possible_version_number(ipv4_address):
     """Determine whether or not the ipv4 ip address is likely a version number or not. This is a beta function and is a work in progress. The word "Possible" in the function name should be taken seriously; this function will return `True` if the ipv4_address *might* be a version number. The results of this function are conjecture and should not be used definitively."""
-    from regexes import find
-
     # if the ipv4_address starts with a number followed by `.0.`, we can assume it is a version number
     pattern = '(?<![0-9.])[0-9]{1,2}\.[0-2]\.'
-    if find(pattern, ipv4_address):
+    if re.findall(pattern, ipv4_address):
         return True
 
     # if the sum of the numbers that make up the ip address are not sufficiently large, it is possible that this ip address is a version number

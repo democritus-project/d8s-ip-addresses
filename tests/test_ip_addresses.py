@@ -37,12 +37,10 @@ def test_ip_current_1():
 
 
 def test_ip_addresses_find_1():
-    from lists import lists_have_same_items
+    from democritus_lists import lists_have_same_items
 
     s = '2001:db8::1000 2001:0db8:0000:0000:0000:0000:0000:1000 8.8.8.8 1.4.33.255'
-    assert lists_have_same_items(
-        ip_addresses_find(s), ['2001:0db8:0000:0000:0000:0000:0000:1000', '2001:db8::1000', '8.8.8.8', '1.4.33.255']
-    )
+    assert lists_have_same_items(ip_addresses_find(s), ['2001:0db8:0000:0000:0000:0000:0000:1000', '2001:db8::1000', '8.8.8.8', '1.4.33.255'])
 
 
 @pytest.mark.network
@@ -134,7 +132,7 @@ def test_ipv4_is_possible_version_number_docs_1():
 
 
 def test_ipv4_private_addresses_docs_1():
-    assert ipv4_private_addresses() == [
+    assert tuple(ipv4_private_addresses()) == (
         {
             'Address Block': '0.0.0.0/8',
             'Name': '"This host on this network"',
@@ -411,7 +409,7 @@ def test_ipv4_private_addresses_docs_1():
             'Globally Reachable': 'False',
             'Reserved-by-Protocol': 'True',
         },
-    ]
+    )
 
 
 def test_ipv4_sum_docs_1():
@@ -437,7 +435,7 @@ def test_ipv6_expand_docs_1():
 
 
 def test_ipv6_private_addresses_docs_1():
-    assert ipv6_private_addresses() == [
+    assert tuple(ipv6_private_addresses()) == (
         {
             'Address Block': '::1/128',
             'Allocation Date': '2006-02',
@@ -678,7 +676,7 @@ def test_ipv6_private_addresses_docs_1():
             'Source': 'True',
             'Termination Date': 'N/A',
         },
-    ]
+    )
 
 
 def test_ipv6_threatconnect_form_docs_1():

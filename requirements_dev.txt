@@ -1,5 +1,6 @@
 black; python_version > '3.5'
-twine
+codecov
+democritus-lists @ git+https://github.com/democritus-project/democritus-lists.git#egg=democritus-lists
 pytest
 pytest-cov
-codecov
+twine

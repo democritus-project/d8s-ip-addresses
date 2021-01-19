@@ -1,2 +1,5 @@
-git+https://github.com/democritus-project/democritus-hypothesis.git#egg=democritus-hypothesis
+democritus-csv @ git+https://github.com/democritus-project/democritus-csv.git#egg=democritus-csv
+democritus-hypothesis @ git+https://github.com/democritus-project/democritus-hypothesis.git#egg=democritus-hypothesis
+democritus-networking @ git+https://github.com/democritus-project/democritus-networking.git#egg=democritus-networking
 hypothesis
+ioc-finder
