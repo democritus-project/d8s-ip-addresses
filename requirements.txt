@@ -1,6 +1,6 @@
-democritus-csv @ git+https://github.com/democritus-project/democritus-csv.git#egg=democritus-csv
-democritus-hypothesis @ git+https://github.com/democritus-project/democritus-hypothesis.git#egg=democritus-hypothesis
-democritus-networking @ git+https://github.com/democritus-project/democritus-networking.git#egg=democritus-networking
+democritus-csv
+democritus-hypothesis
+democritus-networking
 hypothesis
-ioc-finder
 importlib-metadata; python_version < '3.8'
+ioc-finder
