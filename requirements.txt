@@ -3,3 +3,4 @@ democritus-hypothesis @ git+https://github.com/democritus-project/democritus-hyp
 democritus-networking @ git+https://github.com/democritus-project/democritus-networking.git#egg=democritus-networking
 hypothesis
 ioc-finder
+importlib-metadata; python_version < '3.8'
