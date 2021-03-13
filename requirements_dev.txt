@@ -1,6 +1,13 @@
+bandit
 black; python_version > '3.5'
 codecov
-democritus-lists @ git+https://github.com/democritus-project/democritus-lists.git#egg=democritus-lists
+flake8
+flake8-cognitive-complexity
+ipython
+mypy
+pylint
 pytest
 pytest-cov
-twine
+democritus-lists @ git+https://github.com/democritus-project/democritus-lists.git#egg=democritus-lists
+democritus_file_system
+democritus_strings
