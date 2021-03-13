@@ -1,6 +1,6 @@
 import pytest
 
-from democritus_ip_addresses import (
+from d8s_ip_addresses import (
     ipv4_address_examples,
     ipv6_address_examples,
     ipv4_addresses_find,
