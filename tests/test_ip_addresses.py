@@ -1,32 +1,32 @@
 import pytest
 
 from d8s_ip_addresses import (
-    ipv4_address_examples,
-    ipv6_address_examples,
-    ipv4_addresses_find,
-    ipv6_addresses_find,
     ip_addresses_find,
-    ip_is_private,
-    is_ip_address,
-    ip_whois,
-    ip_is_reserved,
-    ip_version,
-    ip_network_block_first_address,
-    ip_network_block_last_address,
-    ip_network_block_ip_count,
-    ip_network_block_to_range,
-    ip_network_block_enumerate,
-    ip_network_block_contains_ip,
-    ip_in_network_block,
-    ip_range_to_network_block,
-    ipv6_expand,
-    ipv6_compress,
-    ipv6_threatconnect_form,
     ip_current,
-    ipv4_private_addresses,
-    ipv6_private_addresses,
-    ipv4_sum,
+    ip_in_network_block,
+    ip_is_private,
+    ip_is_reserved,
+    ip_network_block_contains_ip,
+    ip_network_block_enumerate,
+    ip_network_block_first_address,
+    ip_network_block_ip_count,
+    ip_network_block_last_address,
+    ip_network_block_to_range,
+    ip_range_to_network_block,
+    ip_version,
+    ip_whois,
+    ipv4_address_examples,
+    ipv4_addresses_find,
     ipv4_is_possible_version_number,
+    ipv4_private_addresses,
+    ipv4_sum,
+    ipv6_address_examples,
+    ipv6_addresses_find,
+    ipv6_compress,
+    ipv6_expand,
+    ipv6_private_addresses,
+    ipv6_threatconnect_form,
+    is_ip_address,
 )
 
 
@@ -40,7 +40,9 @@ def test_ip_addresses_find_1():
     from democritus_lists import lists_have_same_items
 
     s = '2001:db8::1000 2001:0db8:0000:0000:0000:0000:0000:1000 8.8.8.8 1.4.33.255'
-    assert lists_have_same_items(ip_addresses_find(s), ['2001:0db8:0000:0000:0000:0000:0000:1000', '2001:db8::1000', '8.8.8.8', '1.4.33.255'])
+    assert lists_have_same_items(
+        ip_addresses_find(s), ['2001:0db8:0000:0000:0000:0000:0000:1000', '2001:db8::1000', '8.8.8.8', '1.4.33.255']
+    )
 
 
 @pytest.mark.network
@@ -135,6 +137,18 @@ def test_ipv4_private_addresses_docs_1():
     assert tuple(ipv4_private_addresses()) == (
         {
             'Address Block': '0.0.0.0/8',
+            'Name': '"This network"',
+            'RFC': '[RFC791], Section 3.2',
+            'Allocation Date': '1981-09',
+            'Termination Date': 'N/A',
+            'Source': 'True',
+            'Destination': 'False',
+            'Forwardable': 'False',
+            'Globally Reachable': 'False',
+            'Reserved-by-Protocol': 'True',
+        },
+        {
+            'Address Block': '0.0.0.0/32',
             'Name': '"This host on this network"',
             'RFC': '[RFC1122], Section 3.2.1.3',
             'Allocation Date': '1981-09',

@@ -8,6 +8,7 @@ mypy
 pylint
 pytest
 pytest-cov
-democritus-lists @ git+https://github.com/democritus-project/democritus-lists.git#egg=democritus-lists
-democritus_file_system
-democritus_strings
+democritus-lists
+democritus-file-system
+democritus-strings
+democritus-python
