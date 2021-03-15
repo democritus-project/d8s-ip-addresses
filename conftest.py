@@ -5,6 +5,7 @@ import pytest
 
 from democritus_file_system import file_read, file_write
 from democritus_strings import string_remove_from_start, string_remove_after
+from democritus_python import python_function_blocks
 
 FILL_OUTPUT_SIGNAL = 'fill'
 FILL_OUTPUT_SIGNAL_IN_CONTEXT = f'== {FILL_OUTPUT_SIGNAL.__repr__()}'
@@ -24,8 +25,6 @@ def pytest_assertrepr_compare(config, op: str, left: object, right: object):
 
 def _update_test(file_path: str, function_name: str, new_assertion_value: Any) -> bool:
     """Update the test with the given function_name in the file at the given file_path with the new_assertion_value."""
-    from python_data import python_function_blocks
-
     test_file_content = file_read(file_path)
     original_function_block = function_block = [
         i for i in python_function_blocks(test_file_content) if function_name in i
@@ -37,8 +36,6 @@ def _update_test(file_path: str, function_name: str, new_assertion_value: Any) -
 
 def _update_test_with_error(file_path: str, function_name: str, error_type: str, erroneous_assertion: str) -> bool:
     """Update the test with the given function_name in the file at the given file_path with the new_assertion_value."""
-    from python_data import python_function_blocks
-
     test_file_content = file_read(file_path)
     original_function_block = function_block = [
         i for i in python_function_blocks(test_file_content) if function_name in i

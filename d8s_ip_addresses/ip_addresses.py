@@ -1,6 +1,6 @@
-from functools import partial
 import ipaddress
 import re
+from functools import partial
 
 # TODO: add decorator(? - or perhaps define a custom type) to validate that the input is an ip address - this applies to all/most functions throughout this file
 # TODO: probably want to use ipaddress.ip_interface rather than ipaddress.ip_network to handle situations in which a host bit is set - may be helpful to have a function to determine if a host bit is set
@@ -8,9 +8,8 @@ import re
 
 def ipv4_address_examples(n: int = 10):
     """Create n ipv4 addresses."""
-    from hypothesis.strategies._internal.ipaddress import ip_addresses
-
     from democritus_hypothesis import hypothesis_get_strategy_results
+    from hypothesis.strategies._internal.ipaddress import ip_addresses
 
     ipv4_addresses_func = partial(ip_addresses, v=4)
 
@@ -19,9 +18,8 @@ def ipv4_address_examples(n: int = 10):
 
 def ipv6_address_examples(n: int = 10):
     """Create n ipv6 addresses."""
-    from hypothesis.strategies._internal.ipaddress import ip_addresses
-
     from democritus_hypothesis import hypothesis_get_strategy_results
+    from hypothesis.strategies._internal.ipaddress import ip_addresses
 
     ipv6_addresses_func = partial(ip_addresses, v=6)
 
@@ -173,7 +171,10 @@ def ipv4_private_addresses():
     from democritus_networking import get
 
     private_ipv4_addresses = csv_read_as_dict(
-        get('https://www.iana.org/assignments/iana-ipv4-special-registry/iana-ipv4-special-registry-1.csv', process_response=True)
+        get(
+            'https://www.iana.org/assignments/iana-ipv4-special-registry/iana-ipv4-special-registry-1.csv',
+            process_response=True,
+        )
     )
     return private_ipv4_addresses
 
@@ -184,7 +185,10 @@ def ipv6_private_addresses():
     from democritus_networking import get
 
     private_ipv6_addresses = csv_read_as_dict(
-        get('https://www.iana.org/assignments/iana-ipv6-special-registry/iana-ipv6-special-registry-1.csv', process_response=True)
+        get(
+            'https://www.iana.org/assignments/iana-ipv6-special-registry/iana-ipv6-special-registry-1.csv',
+            process_response=True,
+        )
     )
     return private_ipv6_addresses
 
