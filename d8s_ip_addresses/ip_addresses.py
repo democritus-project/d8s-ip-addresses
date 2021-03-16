@@ -8,7 +8,7 @@ from functools import partial
 
 def ipv4_address_examples(n: int = 10):
     """Create n ipv4 addresses."""
-    from democritus_hypothesis import hypothesis_get_strategy_results
+    from d8s_hypothesis import hypothesis_get_strategy_results
     from hypothesis.strategies._internal.ipaddress import ip_addresses
 
     ipv4_addresses_func = partial(ip_addresses, v=4)
@@ -18,7 +18,7 @@ def ipv4_address_examples(n: int = 10):
 
 def ipv6_address_examples(n: int = 10):
     """Create n ipv6 addresses."""
-    from democritus_hypothesis import hypothesis_get_strategy_results
+    from d8s_hypothesis import hypothesis_get_strategy_results
     from hypothesis.strategies._internal.ipaddress import ip_addresses
 
     ipv6_addresses_func = partial(ip_addresses, v=6)
@@ -67,7 +67,7 @@ def is_ip_address(text):
 
 def ip_whois(ip):
     """Get whois information for the given ip address."""
-    from democritus_networking import get
+    from d8s_networking import get
 
     return get(f'https://ipapi.co/{ip}/json/', process_response=True)
 
@@ -160,15 +160,15 @@ def ipv6_threatconnect_form(ip_v6):
 
 def ip_current():
     """Get the current ip address."""
-    from democritus_networking import get
+    from d8s_networking import get
 
     return get('https://ipinfo.io/json', process_response=True)
 
 
 def ipv4_private_addresses():
     """Get private ipv4 addresses from https://www.iana.org/assignments/iana-ipv4-special-registry/iana-ipv4-special-registry.xhtml."""
-    from democritus_csv import csv_read_as_dict
-    from democritus_networking import get
+    from d8s_csv import csv_read_as_dict
+    from d8s_networking import get
 
     private_ipv4_addresses = csv_read_as_dict(
         get(
@@ -181,8 +181,8 @@ def ipv4_private_addresses():
 
 def ipv6_private_addresses():
     """Get private ipv6 addresses from https://www.iana.org/assignments/iana-ipv6-special-registry/iana-ipv6-special-registry.xhtml#iana-ipv6-special-registry-1."""
-    from democritus_csv import csv_read_as_dict
-    from democritus_networking import get
+    from d8s_csv import csv_read_as_dict
+    from d8s_networking import get
 
     private_ipv6_addresses = csv_read_as_dict(
         get(

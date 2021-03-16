@@ -3,9 +3,9 @@ from typing import Any
 
 import pytest
 
-from democritus_file_system import file_read, file_write
-from democritus_strings import string_remove_from_start, string_remove_after
-from democritus_python import python_function_blocks
+from d8s_file_system import file_read, file_write
+from d8s_strings import string_remove_from_start, string_remove_after
+from d8s_python import python_function_blocks
 
 FILL_OUTPUT_SIGNAL = 'fill'
 FILL_OUTPUT_SIGNAL_IN_CONTEXT = f'== {FILL_OUTPUT_SIGNAL.__repr__()}'

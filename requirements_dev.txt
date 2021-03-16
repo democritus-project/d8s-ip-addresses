@@ -8,7 +8,7 @@ mypy
 pylint
 pytest
 pytest-cov
-democritus-lists
-democritus-file-system
-democritus-strings
-democritus-python
+d8s-lists
+d8s-file-system
+d8s-strings
+d8s-python

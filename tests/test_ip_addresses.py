@@ -37,7 +37,7 @@ def test_ip_current_1():
 
 
 def test_ip_addresses_find_1():
-    from democritus_lists import lists_have_same_items
+    from d8s_lists import lists_have_same_items
 
     s = '2001:db8::1000 2001:0db8:0000:0000:0000:0000:0000:1000 8.8.8.8 1.4.33.255'
     assert lists_have_same_items(

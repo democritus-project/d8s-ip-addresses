@@ -6,10 +6,10 @@ except ImportError:
 from .ip_addresses import *
 
 try:
-    __version__ = version('democritus_ip_addresses')
+    __version__ = version('d8s_ip_addresses')
 except PackageNotFoundError:
     message = (
-        'Unable to find a version number for "democritus_ip_addresses". '
+        'Unable to find a version number for "d8s_ip_addresses". '
         + 'This likely means the library was not installed properly. '
         + 'Please re-install it and, if the problem persists, '
         + 'raise an issue here: https://github.com/democritus-project/democritus-ip-addresses/issues.'
