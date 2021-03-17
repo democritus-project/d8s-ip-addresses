@@ -11,4 +11,5 @@ pytest-cov
 d8s-lists
 d8s-file-system
 d8s-strings
+bump2version
 d8s-python
