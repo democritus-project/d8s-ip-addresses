@@ -8,8 +8,8 @@ mypy
 pylint
 pytest
 pytest-cov
-d8s-lists
-d8s-file-system
-d8s-strings
+d8s-lists==0.3.0
+d8s-file-system==0.3.0
+d8s-strings==0.3.0
 bump2version
-d8s-python
+d8s-python==0.3.0
