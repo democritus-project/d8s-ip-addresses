@@ -1,6 +1,6 @@
-d8s-csv==0.3.0
-d8s-hypothesis==0.3.0
-d8s-networking==0.3.0
+d8s-csv==0.*
+d8s-hypothesis==0.*
+d8s-networking==0.*
 hypothesis
 importlib-metadata; python_version < '3.8'
 ioc-finder
