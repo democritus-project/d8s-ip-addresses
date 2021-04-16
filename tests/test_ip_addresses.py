@@ -1,4 +1,5 @@
 import pytest
+from d8s_lists import iterables_have_same_items
 
 from d8s_ip_addresses import (
     ip_addresses_find,
@@ -6,13 +7,11 @@ from d8s_ip_addresses import (
     ip_in_network_block,
     ip_is_private,
     ip_is_reserved,
-    ip_network_block_contains_ip,
     ip_network_block_enumerate,
     ip_network_block_first_address,
     ip_network_block_ip_count,
     ip_network_block_last_address,
     ip_network_block_to_range,
-    ip_range_to_network_block,
     ip_version,
     ip_whois,
     ipv4_address_examples,
@@ -29,6 +28,8 @@ from d8s_ip_addresses import (
     is_ip_address,
 )
 
+SAMPLE_TEXT_WITH_IP_ADDRESSES = '8.8.8.0 2001:0db8:0000:0000:0000:0000:0000:1000'
+
 
 def test_ip_current_1():
     result = ip_current()
@@ -37,10 +38,8 @@ def test_ip_current_1():
 
 
 def test_ip_addresses_find_1():
-    from d8s_lists import lists_have_same_items
-
     s = '2001:db8::1000 2001:0db8:0000:0000:0000:0000:0000:1000 8.8.8.8 1.4.33.255'
-    assert lists_have_same_items(
+    assert iterables_have_same_items(
         ip_addresses_find(s), ['2001:0db8:0000:0000:0000:0000:0000:1000', '2001:db8::1000', '8.8.8.8', '1.4.33.255']
     )
 
@@ -67,31 +66,24 @@ def test_ipv6_address_examples_1():
 
 
 def test_ip_in_network_block_docs_1():
-    assert ip_in_network_block('10.0.0.1', '10.0.0.0/24') == True
-    assert ip_in_network_block('10.0.1.0', '10.0.0.0/24') == False
-    assert ip_in_network_block('10.0.1.0', '10.0.0.0/16') == True
-    assert ip_in_network_block('10.1.0.0', '10.0.0.0/16') == False
+    assert ip_in_network_block('10.0.0.1', '10.0.0.0/24')
+    assert not ip_in_network_block('10.0.1.0', '10.0.0.0/24')
+    assert ip_in_network_block('10.0.1.0', '10.0.0.0/16')
+    assert not ip_in_network_block('10.1.0.0', '10.0.0.0/16')
 
 
 def test_ip_is_private_docs_1():
-    assert ip_is_private('10.0.0.1') == True
-    assert ip_is_private('8.8.8.8') == False
+    assert ip_is_private('10.0.0.1')
+    assert not ip_is_private('8.8.8.8')
 
 
 def test_ip_is_reserved_docs_1():
-    assert ip_is_reserved('127.0.0.1') == False
-    assert ip_is_reserved('8.8.0.1') == False
-
-
-def test_ip_network_block_contains_ip_docs_1():
-    assert ip_network_block_contains_ip('10.0.0.0/24', '10.0.0.1') == True
-    assert ip_network_block_contains_ip('10.0.0.0/24', '10.0.1.0') == False
-    assert ip_network_block_contains_ip('10.0.0.0/16', '10.0.1.0') == True
-    assert ip_network_block_contains_ip('10.0.0.0/16', '10.1.0.0') == False
+    assert not ip_is_reserved('127.0.0.1')
+    assert not ip_is_reserved('8.8.0.1')
 
 
 def test_ip_network_block_enumerate_docs_1():
-    assert ip_network_block_enumerate('8.8.8.0/30') == ['8.8.8.0', '8.8.8.1', '8.8.8.2', '8.8.8.3']
+    assert tuple(ip_network_block_enumerate('8.8.8.0/30')) == ('8.8.8.0', '8.8.8.1', '8.8.8.2', '8.8.8.3')
 
 
 def test_ip_network_block_first_address_docs_1():
@@ -110,27 +102,27 @@ def test_ip_network_block_to_range_docs_1():
     assert ip_network_block_to_range('8.8.8.0/24') == '8.8.8.0 - 8.8.8.255'
 
 
-# def test_ip_range_to_network_block_docs_1():
-# assert ip_range_to_network_block('ip_range_string') == 'fill'  # fill
-
-
 def test_ip_version_docs_1():
     assert ip_version('8.8.8.0') == 4
     assert ip_version('2001:0db8:0000:0000:0000:0000:0000:1000') == 6
     assert ip_version('2001:db8::1000') == 6
 
 
-# def test_ipv4_addresses_find_docs_1():
-# assert ipv4_addresses_find('text') == 'fill'  # fill
+def test_ipv4_addresses_find_docs_1():
+    assert ipv4_addresses_find(SAMPLE_TEXT_WITH_IP_ADDRESSES) == ['8.8.8.0']
+
+
+def test_ipv6_addresses_find_docs_1():
+    assert ipv6_addresses_find(SAMPLE_TEXT_WITH_IP_ADDRESSES) == ['2001:0db8:0000:0000:0000:0000:0000:1000']
 
 
 def test_ipv4_is_possible_version_number_docs_1():
-    assert ipv4_is_possible_version_number('8.8.8.8') == False
-    assert ipv4_is_possible_version_number('1.0.1.2') == True
-    assert ipv4_is_possible_version_number('2.0.1.2') == True
-    assert ipv4_is_possible_version_number('1.1.1.2') == True
-    assert ipv4_is_possible_version_number('23.0.1.2') == True
-    assert ipv4_is_possible_version_number('123.0.1.2') == False
+    assert not ipv4_is_possible_version_number('8.8.8.8')
+    assert ipv4_is_possible_version_number('1.0.1.2')
+    assert ipv4_is_possible_version_number('2.0.1.2')
+    assert ipv4_is_possible_version_number('1.1.1.2')
+    assert ipv4_is_possible_version_number('23.0.1.2')
+    assert not ipv4_is_possible_version_number('123.0.1.2')
 
 
 def test_ipv4_private_addresses_docs_1():
@@ -436,10 +428,6 @@ def test_ipv4_sum_docs_1():
 # assert ipv6_address_examples(n=Num) == 'fill'  # fill
 
 
-# def test_ipv6_addresses_find_docs_1():
-# assert ipv6_addresses_find('text') == 'fill'  # fill
-
-
 def test_ipv6_compress_docs_1():
     assert ipv6_compress('2001:0db8:0000:0000:0000:0000:0000:1000') == '2001:db8::1000'
 
@@ -699,7 +687,7 @@ def test_ipv6_threatconnect_form_docs_1():
 
 
 def test_is_ip_address_docs_1():
-    assert is_ip_address('8.8.8.0') == True
-    assert is_ip_address('2001:0db8:0000:0000:0000:0000:0000:1000') == True
-    assert is_ip_address('2001:db8::1000') == True
-    assert is_ip_address('not an ip address') == False
+    assert is_ip_address('8.8.8.0')
+    assert is_ip_address('2001:0db8:0000:0000:0000:0000:0000:1000')
+    assert is_ip_address('2001:db8::1000')
+    assert not is_ip_address('not an ip address')
