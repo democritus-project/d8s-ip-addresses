@@ -7,6 +7,7 @@ from d8s_ip_addresses import (
     ip_in_network_block,
     ip_is_private,
     ip_is_multicast,
+    ip_is_public,
     ip_is_reserved,
     ip_network_block_enumerate,
     ip_network_block_first_address,
@@ -82,6 +83,15 @@ def test_ip_is_multicast_docs_1():
     assert ip_is_multicast('224.0.0.1')
     assert not ip_is_multicast('8.8.8.8')
     assert not ip_is_multicast('127.0.0.1')
+
+
+def test_ip_is_public_docs_1():
+    assert ip_is_public('8.8.8.8')
+    assert ip_is_public('123.123.123.123')
+    assert not ip_is_public('224.0.0.1')
+    assert not ip_is_public('127.0.0.1')
+    assert not ip_is_public('192.168.0.4')
+    assert not ip_is_public('10.5.4.3')
 
 
 def test_ip_is_reserved_docs_1():
