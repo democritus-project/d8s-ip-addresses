@@ -47,6 +47,11 @@ def ip_is_private(ip):
     return ipaddress.ip_address(ip).is_private
 
 
+def ip_is_multicast(ip):
+    """Check if the IP address is multicast."""
+    return ipaddress.ip_address(ip).is_multicast
+
+
 def is_ip_address(text):
     """Determine whether or not the given text is an ip address."""
     try:
