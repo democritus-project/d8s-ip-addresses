@@ -14,6 +14,12 @@ Democritus functions<sup>[1]</sup> for working with IP addresses.
 
 We use `d8s` (pronounced "dee-eights") as an abbreviation for `democritus` (you can read more about this [here](https://github.com/democritus-project/roadmap#what-is-d8s)).
 
+## Installation
+
+```
+pip install d8s-ip-addresses
+```
+
 ## Usage
 
 You import the library like:
