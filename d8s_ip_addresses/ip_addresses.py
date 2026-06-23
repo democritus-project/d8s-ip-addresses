@@ -71,7 +71,7 @@ def is_ip_address(text):
 def ip_whois(ip):
     """Get whois information for the given ip address."""
 
-    return get(f'https://ipapi.co/{ip}/json/', process_response=True)
+    return get(f"https://ipapi.co/{ip}/json/", process_response=True)
 
 
 def ip_is_reserved(ip):
@@ -106,7 +106,7 @@ def ip_network_block_ip_count(network_block_string):
 def ip_network_block_to_range(network_block_string):
     """Return the range of IP addresses covered by the network block in the form "<starting-ip> - <ending-ip>"."""
     ip = ipaddress.ip_network(network_block_string)
-    return '{} - {}'.format(ip.network_address, ip.broadcast_address)
+    return "{} - {}".format(ip.network_address, ip.broadcast_address)
 
 
 def ip_network_block_enumerate(network_block_string) -> Iterable[str]:
@@ -155,7 +155,7 @@ def ipv6_threatconnect_form(ip_v6):
 def ip_current():
     """Get the current ip address."""
 
-    return get('https://ipinfo.io/json', process_response=True)
+    return get("https://ipinfo.io/json", process_response=True)
 
 
 def ipv4_private_addresses():
@@ -164,7 +164,7 @@ def ipv4_private_addresses():
     Data from: https://www.iana.org/assignments/iana-ipv4-special-registry/iana-ipv4-special-registry.xhtml."""  # noqa: E501
     private_ipv4_addresses = csv_read_as_dict(
         get(
-            'https://www.iana.org/assignments/iana-ipv4-special-registry/iana-ipv4-special-registry-1.csv',
+            "https://www.iana.org/assignments/iana-ipv4-special-registry/iana-ipv4-special-registry-1.csv",
             process_response=True,
         )
     )
@@ -177,7 +177,7 @@ def ipv6_private_addresses():
     Data from: https://www.iana.org/assignments/iana-ipv6-special-registry/iana-ipv6-special-registry.xhtml#iana-ipv6-special-registry-1."""  # noqa: E501
     private_ipv6_addresses = csv_read_as_dict(
         get(
-            'https://www.iana.org/assignments/iana-ipv6-special-registry/iana-ipv6-special-registry-1.csv',
+            "https://www.iana.org/assignments/iana-ipv6-special-registry/iana-ipv6-special-registry-1.csv",
             process_response=True,
         )
     )
@@ -189,7 +189,7 @@ def ipv4_sum(ipv4_address):
 
     For example, 8.8.8.8 would sum to 32 (calculated by taking 8 + 8 + 8 + 8).
     """
-    return sum([int(i) for i in ipv4_address.split('.')])
+    return sum([int(i) for i in ipv4_address.split(".")])
 
 
 def ipv4_is_possible_version_number(ipv4_address):
@@ -201,7 +201,7 @@ def ipv4_is_possible_version_number(ipv4_address):
     The results of this function are conjecture and should not be used definitively.
     """
     # if the ipv4_address starts with a number followed by `.0.`, we can assume it is a version number
-    pattern = r'(?<![0-9.])[0-9]{1,2}\.[0-2]\.'
+    pattern = r"(?<![0-9.])[0-9]{1,2}\.[0-2]\."
     if re.findall(pattern, ipv4_address):
         return True
 
