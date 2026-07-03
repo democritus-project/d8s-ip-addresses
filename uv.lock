@@ -402,7 +402,7 @@ wheels = [
 
 [[package]]
 name = "d8s-ip-addresses"
-version = "0.6.0"
+version = "0.7.0"
 source = { editable = "." }
 dependencies = [
     { name = "d8s-csv" },
@@ -507,7 +507,7 @@ wheels = [
 
 [[package]]
 name = "d8s-python"
-version = "0.9.0"
+version = "0.10.0"
 source = { registry = "https://pypi.org/simple" }
 dependencies = [
     { name = "d8s-algorithms" },
@@ -518,9 +518,9 @@ dependencies = [
     { name = "jinja2" },
     { name = "more-itertools" },
 ]
-sdist = { url = "https://files.pythonhosted.org/packages/2d/ae/b43ff4fb35eedd2f3a4be0ef735299d6f50c2548395218cebb4677425c94/d8s_python-0.9.0.tar.gz", hash = "sha256:ad043a0ff373a7526391d8c5d05197801de2fa059a4f4e14cd1d0738f1d8aa41", size = 37696, upload-time = "2021-05-26T11:02:50.625Z" }
+sdist = { url = "https://files.pythonhosted.org/packages/02/02/46f439fca46fd2998770d17803a40dd847ef498b2422a2518804a7262179/d8s_python-0.10.0.tar.gz", hash = "sha256:135c6b9d5b62a66604ffef4ab58a68b4490a6bd4c58ae42ac4edcd4f1d426882", size = 102158, upload-time = "2026-07-01T12:07:06.288Z" }
 wheels = [
-    { url = "https://files.pythonhosted.org/packages/1c/39/560aa256ec4bfbc0ee3024da93d25eb0a19512da5f81c4f5ecea988b6492/d8s_python-0.9.0-py2.py3-none-any.whl", hash = "sha256:2661c3b083014a3ffb422b080c622aa1c4718de5efdab7016c689a06b77c6713", size = 32811, upload-time = "2021-05-26T11:02:48.624Z" },
+    { url = "https://files.pythonhosted.org/packages/be/9a/925f9bd876c03c281271de131f360ae9aabd97823d2071012bd3aca9304c/d8s_python-0.10.0-py3-none-any.whl", hash = "sha256:99e3edbebacbd1f4d46a43039b732a65e5ed8cdb0640248e9387a1f039d0e1f3", size = 26089, upload-time = "2026-07-01T12:07:04.979Z" },
 ]
 
 [[package]]
