@@ -492,7 +492,7 @@ wheels = [
 
 [[package]]
 name = "d8s-networking"
-version = "0.4.2"
+version = "0.5.0"
 source = { registry = "https://pypi.org/simple" }
 dependencies = [
     { name = "d8s-hashes" },
@@ -500,9 +500,9 @@ dependencies = [
     { name = "d8s-user-agents" },
     { name = "requests" },
 ]
-sdist = { url = "https://files.pythonhosted.org/packages/f2/5c/5fbe2dfab854274b306ab3d15963b26c91b7006bd4ca4239ae4f78e1803a/d8s_networking-0.4.2.tar.gz", hash = "sha256:1f5a27cd6cd7f9e6368c4daa2b54e2fb65b794c185ebec555d75468fa2398d3f", size = 25784, upload-time = "2021-04-15T11:55:51.823Z" }
+sdist = { url = "https://files.pythonhosted.org/packages/7d/ff/cf519eafc90d0f39011cfdf6e516877dce0fe8bcb0bcb7a0cfb6e4f08cfc/d8s_networking-0.5.0.tar.gz", hash = "sha256:e9fd11f7d1760f990c8530f15cd2c301771f80f56eb113f4d09145b30129a9e7", size = 92960, upload-time = "2026-07-01T12:05:41.041Z" }
 wheels = [
-    { url = "https://files.pythonhosted.org/packages/9f/9f/0b8b2f5ba1439c3000bc656eeb124cc901297fbc9b84894d07cdcfa558da/d8s_networking-0.4.2-py2.py3-none-any.whl", hash = "sha256:3b9639deaa053f2b76537a6a7ebc2d509a902fc08487f09e2abd6a2456631c6f", size = 21674, upload-time = "2021-04-15T11:55:50.47Z" },
+    { url = "https://files.pythonhosted.org/packages/ce/87/2ede3e4866479fa36f02f21aa522c989419a4457ac1769791fb282331339/d8s_networking-0.5.0-py3-none-any.whl", hash = "sha256:5f8c329248815c29dd1dcb55e2b3c028b5fc638202cedc682bb9cf0e66bcf5a2", size = 20045, upload-time = "2026-07-01T12:05:39.706Z" },
 ]
 
 [[package]]
