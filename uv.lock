@@ -327,11 +327,11 @@ wheels = [
 
 [[package]]
 name = "d8s-csv"
-version = "0.6.0"
+version = "0.7.0"
 source = { registry = "https://pypi.org/simple" }
-sdist = { url = "https://files.pythonhosted.org/packages/c1/80/5861b58a0a75a987e3f36c14071727bee6e77d94c0c0253b48ec5d10d3b1/d8s_csv-0.6.0.tar.gz", hash = "sha256:3a7aaa700e326e4d52058d8f5c72864bc3223c468e03ae5606f35edc7b9dc3fa", size = 23007, upload-time = "2021-05-07T10:47:56.868Z" }
+sdist = { url = "https://files.pythonhosted.org/packages/48/06/449b0f6727600d747c20aca868e8c14bc3f28d171d64495238fb44706650/d8s_csv-0.7.0.tar.gz", hash = "sha256:6ca8fd5cce6790ac24e758552e5969c0ffd4cf20eb68782824df6412a0596dde", size = 89321, upload-time = "2026-07-01T12:05:27.443Z" }
 wheels = [
-    { url = "https://files.pythonhosted.org/packages/6e/99/19c4a8d919fd11696f89e4cedb026ee03a63f0a29824877d060957f31923/d8s_csv-0.6.0-py2.py3-none-any.whl", hash = "sha256:822ed26a9733efb1b9be0ed9b7c20acdc6f896f6c71db59d2019d3b98186f3c3", size = 19221, upload-time = "2021-05-07T10:47:54.499Z" },
+    { url = "https://files.pythonhosted.org/packages/e5/4f/7f4d2b930e8ad56eb84c7d835fef3f2023751df72d5e0c986be1d6fa7d6e/d8s_csv-0.7.0-py3-none-any.whl", hash = "sha256:0a73eefae7f975a9d01083c3046350cdc81f6e6fac8acb307e0f354f4c354aa3", size = 18054, upload-time = "2026-07-01T12:05:26.349Z" },
 ]
 
 [[package]]
