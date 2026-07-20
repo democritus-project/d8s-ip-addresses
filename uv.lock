@@ -390,14 +390,14 @@ wheels = [
 
 [[package]]
 name = "d8s-hypothesis"
-version = "0.6.0"
+version = "0.7.0"
 source = { registry = "https://pypi.org/simple" }
 dependencies = [
     { name = "hypothesis" },
 ]
-sdist = { url = "https://files.pythonhosted.org/packages/10/42/c09a779ccd2b8cc299287aff1e2060faed4376bb991cbb6e3ad86ff94cad/d8s_hypothesis-0.6.0.tar.gz", hash = "sha256:d3219bf4b1edb1742a0a2fe429c39b5b776374ecabe41e575bda2ee6980da058", size = 23014, upload-time = "2021-05-07T10:54:48.346Z" }
+sdist = { url = "https://files.pythonhosted.org/packages/7a/e9/70c23fee00d6aa13fd7c9343e904790e47d279df7ea7de2d7586523ba76b/d8s_hypothesis-0.7.0.tar.gz", hash = "sha256:f682ef3d2eaa83842cd4af26a32e75d55eb909238107554b233784f22f3c15cc", size = 89214, upload-time = "2026-07-01T12:06:00.911Z" }
 wheels = [
-    { url = "https://files.pythonhosted.org/packages/8b/24/f3e4967b1f058e1b79cf353b5ecd37bacfb1ed0f2de71580e3178bf0491b/d8s_hypothesis-0.6.0-py2.py3-none-any.whl", hash = "sha256:1d883c06fd05adc8c8f9f13de180f70ecc41cdfa1fee21055341b5ddc49a091d", size = 19377, upload-time = "2021-05-07T10:54:46.822Z" },
+    { url = "https://files.pythonhosted.org/packages/a3/25/abf622e254e340603a6ff299a7c8a5db05d1c9e2eee9f27d4e2ee4ef8882/d8s_hypothesis-0.7.0-py3-none-any.whl", hash = "sha256:4d2a509a920f6e60f50b8aad76c0772861a7115dcbb5adfbf9f862e63b4239f6", size = 18296, upload-time = "2026-07-01T12:05:59.455Z" },
 ]
 
 [[package]]
